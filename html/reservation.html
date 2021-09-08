@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/reservation.css">
+    <title>Réservation</title>
+</head>
+
+<body>
+    <header>
+        <h1>Les Flots Bleus</h1>
+        <div class="nav">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="onglet nav-link" href="camping.html">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="onglet nav-link" href="reservation.html">Réservation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="onglet nav-link" href="reglement.html">Règlement</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <h2>Votre réservation</h2>
+    <form action="../php/reservation.php" method="POST">
+        <div class="formulaire">
+            <div class="partie1">
+                <legend>Coordonnées</legend><br>
+                <p>
+                    <label for="nom">Nom: </label>
+                    <input type="text" id="nom" name="nom" required>
+                </p>
+                <p>
+                    <label for="prenom">Prénom: </label>
+                    <input type="text" id="prenom" name="prenom" required>
+                </p>
+                <p>
+                    <label for="date">Date de naissance: </label>
+                    <input type="date" id="date" name="date" required>
+                </p>
+                <p>
+                    <label for="adresse">Adresse: </label>
+                    <input type="text" id="adresse" name="adresse" required>
+                </p>
+                <p>
+                    <label for="code_postal">Code postal: </label>
+                    <input type="text" id="code_postal" name="code_postal" required>
+                </p>
+                <p>
+                    <label for="ville">Ville</label>
+                    <input type="text" id="ville" name="ville" required>
+                </p>
+                <p>
+                    <label for="tel">Teléphone: </label>
+                    <input type="tel" id="tel" name="tel">
+                </p>
+                <p>
+                    <label for="pays">Pays: </label>
+                    <input type="text" id="pays" name="pays" required>
+                </p>
+                <p>
+                    <label for="mail">E-mail: </label>
+                    <input type="email" id="mail" name="mail" required>
+                </p>
+                <p>
+                    <label for="immatriculation">Immatriculation voiture: </label>
+                    <input type="text" id="immatriculation" name="immatriculation">
+                </p>
+            </div>
+            <div class="partie2">
+                <legend>Détails du séjour</legend><br>
+                <p>
+                    <label for="arrivee">Date d'arrivée: </label>
+                    <input type="date" id="arrivee" name="arrivee" required>
+                </p>
+                <p>
+                    <label for="depart">Date de départ: </label>
+                    <input type="date" id="depart" name="depart" required>
+                </p>
+                <p>
+                    <label for="animaux">Emmenez-vous des animaux?</label><br>
+                    <input type="radio" id="animaux" name="animaux" value="oui"> Oui
+                    <input type="radio" id="animaux" name="animaux" value="non"> Non
+                </p>
+            </div>
+        </div>
+
+        <div class="formulaire2">
+            <legend>Personnes vous accompagnant:</legend><br>
+            <p>
+                <label for="nom">Nom: </label>
+                <input type="text" id="nom" name="nomacc[]">
+                <label for="prenom">Prénom: </label>
+                <input type="text" id="prenom" name="prenomacc[]">
+                <label for="date">Date de naissance: </label>
+                <input type="date" id="date" name="dateacc[]">
+            </p>
+            <hr>
+            <p>
+                <label for="nom">Nom: </label>
+                <input type="text" id="nom" name="nomacc[]">
+                <label for="prenom">Prénom: </label>
+                <input type="text" id="prenom" name="prenomacc[]">
+                <label for="date">Date de naissance: </label>
+                <input type="date" id="date" name="dateacc[]">
+            </p>
+            <hr>
+            <p>
+                <label for="nom">Nom: </label>
+                <input type="text" id="nom" name="nomacc[]">
+                <label for="prenom">Prénom: </label>
+                <input type="text" id="prenom" name="prenomacc[]">
+                <label for="date">Date de naissance: </label>
+                <input type="date" id="date" name="dateacc[]">
+            </p>
+            <hr>
+            <p>
+                <label for="nom">Nom: </label>
+                <input type="text" id="nom" name="nomacc[]">
+                <label for="prenom">Prénom: </label>
+                <input type="text" id="prenom" name="prenomacc[]">
+                <label for="date">Date de naissance: </label>
+                <input type="date" id="date" name="dateacc[]">
+            </p>
+            <hr>
+            <p>
+                <label for="nom">Nom: </label>
+                <input type="text" id="nom" name="nomacc[]">
+                <label for="prenom">Prénom: </label>
+                <input type="text" id="prenom" name="prenomacc[]">
+                <label for="date">Date de naissance: </label>
+                <input type="date" id="date" name="dateacc[]">
+            </p>
+        </div>
+        <div class="formulaire3">
+            <legend>Location d'emplacement</legend><br>
+            <p>Je souhaite réserver pour:</p>
+            <div class="croix">
+                <p>
+                    <input type="radio" id="emplacement" name="emplacement" value="emplacement" required>
+                    <label for="emplacement">Emplacement</label><br>
+
+                    <input type="radio" id="grand_confort" name="emplacement" value="grand_confort" required>
+                    <label for="grand_confort">Emplacement Grand Confort</label><br>
+                    (Eau, électricité, évacuation)<br>
+
+                    <input type="radio" id="pre_equipe" name="emplacement" value="pre_equipe" required>
+                    <label for="pre_equipe">Emplacement pré-équipé</label><br>
+                    (Table, chaises, parasol, plaques gaz deux feux, frigo, électricité)
+                </p><br>
+                <p>
+                    <input type="radio" id="tente" name="type_location" value="tente" required>
+                    <label for="tente">Tente</label><br>
+
+                    <input type="radio" id="mobilhome" name="type_location" value="mobilhome" required>
+                    <label for="mobilhome">Mobil-home</label><br>
+
+                    <input type="radio" id="caravane" name="type_location" value="caravane" required>
+                    <label for="caravane">Caravane</label><br>
+
+                    <input type="radio" id="voiture" name="type_location" value="voiture" required>
+                    <label for="voiture">Voiture</label><br><br>
+
+                    <label for="electricite">Electricité 6 ampères:</label><br>
+                    <input type="radio" id="electricite" name="electricite" value="oui"> Oui
+                    <input type="radio" id="electricite" name="electricite" value="non"> Non<br>
+
+                    <label for="frigo">Location frigo:</label><br>
+                    <input type="radio" id="frigo" name="frigo" value="oui"> Oui
+                    <input type="radio" id="frigo" name="frigo" value="non"> Non
+                </p>
+            </div>
+        </div>
+        <div class="formulaire4">
+            <p>
+                Arrhes séjour camping...................... 50€<br>
+                Frais de dossier.................................... 10€<br>
+                <strong>TOTAL </strong>= 60€
+            </p>
+            <label for="paiement">Je règle par: </label><br>
+            <input type="radio" id="paiement" name="paiement" value="cheque" required> Chèque à l'ordre de E.C.M.E<br>
+            <input type="radio" id="paiement" name="paiement" value="cheque_vacances" required> Chèques vacances
+            ANCV<br>
+            <input type="radio" id="paiement" name="paiement" value="virement" required> Virement pour
+            l'international<br><br>
+
+            <p>
+                Je soussigné(e) Mme/Mr<input type="text" name="nom_signataire" required>, déclare accepter les
+                conditions de réservation et de location
+                précisées ci-dessous.<br>
+                J'ai également pris connaissance des documents fournis avec ce contrat ainsi que du règlement
+                intérieur.<br>
+                C'est donc en connaissance de tous ces documents que je remplis ce contrat de location.<br>
+                <strong class="reglement">Il est entendu que la réservation ne sera effective qu'après réception de la
+                    confirmation écrite du camping.
+                </strong><br>
+                <a href="reglement.html" class="reglement2">Règlement du camping</a><br><br>
+                <div class="formalites">
+                    <div class="lieu_date">
+                        <div>
+                            <label for="ville">A: </label>
+                            <input type="text" id="ville" name="ville_signature" required>
+                        </div>
+                        <div>
+                            <label for="date"> Le: </label>
+                            <input type="date" id="date" name="date_signature" required>
+                        </div>
+                    </div>
+                    <div class="signature">
+                        <div>
+                            <label for="signature">Signature du locataire: </label>
+                        </div>
+                        <div>
+                            <input type="text" id="signature" name="signature" required>
+                        </div>
+                    </div>
+                </div>
+            </p>
+        </div>
+        <input type="submit" class="reserver" value="Réserver">
+    </form>
+</body>
+
+</html>

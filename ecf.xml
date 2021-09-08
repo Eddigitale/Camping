@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.9.2
+- https://www.phpmyadmin.net
+-
+- Hôte : 127.0.0.1:3308
+- Généré le :  ven. 17 juil. 2020 à 08:51
+- Version du serveur :  8.0.18
+- Version de PHP :  7.3.12
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="ecf" collation="utf8_general_ci" charset="utf8">
+            <pma:table name="accompagnants">
+                CREATE TABLE `accompagnants` (
+                  `id_client` int(11) NOT NULL,
+                  `nom` varchar(20) NOT NULL,
+                  `prenom` varchar(20) NOT NULL,
+                  `date_naissance` varchar(20) NOT NULL,
+                  KEY `FK` (`id_client`),
+                  CONSTRAINT `accompagnants_ibfk_1` FOREIGN KEY (`id_client`) REFERENCES `clients` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="clients">
+                CREATE TABLE `clients` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `nom` varchar(20) NOT NULL,
+                  `prenom` varchar(20) NOT NULL,
+                  `date_naissance` varchar(20) NOT NULL,
+                  `adresse` text NOT NULL,
+                  `code_postal` int(11) NOT NULL,
+                  `ville` varchar(20) NOT NULL,
+                  `tel` int(12) NOT NULL,
+                  `pays` varchar(20) NOT NULL,
+                  `mail` text NOT NULL,
+                  `immatriculation` varchar(20) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=202 DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="detail_sejour">
+                CREATE TABLE `detail_sejour` (
+                  `id_client` int(11) NOT NULL,
+                  `date_arrivee` varchar(20) NOT NULL,
+                  `date_depart` varchar(20) NOT NULL,
+                  `animaux` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+                  KEY `FK2` (`id_client`),
+                  CONSTRAINT `detail_sejour_ibfk_1` FOREIGN KEY (`id_client`) REFERENCES `clients` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="location_emplacement">
+                CREATE TABLE `location_emplacement` (
+                  `id_client` int(11) NOT NULL,
+                  `emplacement` varchar(50) NOT NULL,
+                  `type_location` varchar(50) NOT NULL,
+                  `electricite` varchar(20) DEFAULT NULL,
+                  `frigo` varchar(20) DEFAULT NULL,
+                  KEY `FK3` (`id_client`),
+                  CONSTRAINT `location_emplacement_ibfk_1` FOREIGN KEY (`id_client`) REFERENCES `clients` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="paiement">
+                CREATE TABLE `paiement` (
+                  `id_client` int(11) NOT NULL,
+                  `moyen_paiement` varchar(20) NOT NULL,
+                  `nom` varchar(20) NOT NULL,
+                  `ville` varchar(50) NOT NULL,
+                  `date` varchar(20) NOT NULL,
+                  `signature` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
+                ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Base de données :  'ecf'
+    -->
+    <database name="ecf">
+        <!-- Table accompagnants -->
+        <!-- Table clients -->
+        <!-- Table detail_sejour -->
+        <!-- Table location_emplacement -->
+        <!-- Table paiement -->
+    </database>
+</pma_xml_export>

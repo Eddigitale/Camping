@@ -1,0 +1,30 @@
+-- Requetes EFC
+-- Inserer les coordonnées du client dans la table client
+INSERT INTO `clients`(`nom`, `prenom`, `date_naissance`, `adresse`, `code_postal`, `ville`, `tel`, `pays`, `mail`, `immatriculation`) VALUES (:nom, :prenom, :date_naissance, :adresse, :code_postal, :ville, :tel, :pays, :mail, :immatriculation)
+
+-- Insérer les détails du séjour ainsi que l'id client dans la table detail_sejour
+INSERT INTO `detail_sejour`(`id_client`, `date_arrivee`, `date_depart`, `animaux`) VALUES ((SELECT MAX(`id`) FROM `clients`), :date_arrivee, :date_depart, :animaux)
+
+-- Insérer le type de locaton dans la table location_emplacement
+INSERT INTO `location_emplacement`(`id_client`, `emplacement`, `type_location`, `electricite`, `frigo`) VALUES ((SELECT MAX(`id`) FROM `clients`), :emplacement, :type_location, :electricite, :frigo)
+
+-- Insérer les accompagnants dans la table accompagnants (avec une boucle)
+INSERT INTO `accompagnants` (`id_client`, `nom`, `prenom`, `date_naissance`) VALUES ((SELECT MAX(`id`) FROM `clients`), :nomacc, :prenomacc, :date_naissanceacc)
+
+-- Insérer les formalités dans la table paiement
+INSERT INTO `paiement`(`id_client`, `moyen_paiement`, `nom`, `ville`, `date`, `signature`) VALUES ((SELECT MAX(`id`) FROM `clients`), :paiement, :nom, :ville_signature, :date_signature, :signe)
+
+-- Afficher les coordonnées de la personne qui a rempli le formulaire
+SELECT * FROM `clients` WHERE `id` = (SELECT MAX(`id`) FROM `clients`)
+
+-- Afficher les détails du séjour de la personne qui a rempli le formulaire
+SELECT * FROM `clients` INNER JOIN `detail_sejour` ON `clients`.`id` = `detail_sejour`.`id_client` WHERE `id` = (SELECT MAX(`id`) FROM `clients`)
+
+-- Afficher l'emplacement loué par la personne qui a rempli le formulaire
+SELECT * FROM `clients` INNER JOIN `location_emplacement` ON `clients`.`id` = `location_emplacement`.`id_client` WHERE `id` = (SELECT MAX(`id`) FROM `clients`)
+
+-- Afficher le moyen de paiement qu'utilise la personne qui a rempli le formulaire
+SELECT * FROM `clients` INNER JOIN `paiement` ON `clients`.`id` = `paiement`.`id_client` WHERE `id` = (SELECT MAX(`id`) FROM `clients`)
+
+-- Afficher les personnes accompagnant la personne qui a rempli le formulaire
+SELECT * FROM `clients` INNER JOIN `accompagnants` ON `clients`.`id` = `accompagnants`.`id_client` WHERE `id` = (SELECT MAX(`id`) FROM `clients`)

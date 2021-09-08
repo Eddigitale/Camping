@@ -1,0 +1,78 @@
+.reservation {
+    width: 80%;
+    margin: auto;
+    margin-top: 2%;
+    border: 1px solid royalblue;
+    background-color: white;
+    padding: 1%;
+}
+
+strong {
+    color: royalblue;
+}
+
+h1 {
+    text-align: center;
+    color: royalblue;
+    text-shadow: 3px 3px 3px rgb(28, 0, 130);
+}
+
+.nav {
+    margin: auto;
+}
+
+header {
+    border-bottom: rgb(207, 206, 206) solid 1px;
+    background-color: rgb(166, 255, 255);
+}
+
+li {
+    background-color: white;
+    border-radius: 5px;
+}
+
+body {
+    background-color: rgb(219, 250, 250);
+}
+
+h2 {
+    color: royalblue;
+    text-align: center;
+    margin-top: 2%;
+    font-size: 20px;
+}
+
+.recu {
+    margin-top: 0px;
+}
+
+.recap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.commande,
+.accompagnants {
+    width: 40%;
+}
+
+h3 {
+    font-weight: bold;
+    color: blue;
+    text-decoration: underline;
+    text-decoration-color: cyan;
+    margin-bottom: 5%;
+}
+
+@media all and (max-width: 800px) {
+    .recap {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .commande,
+    .accompagnants {
+        width: 100%;
+    }
+}
